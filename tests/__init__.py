@@ -15,16 +15,11 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import print_function
-
 import itertools
 
-from PIL import Image, ImageDraw
-from six.moves import input
+import winstray
 
-import pystray
-
-from pystray import MenuItem as item
+from winstray import MenuItem as item
 
 
 COLORS = itertools.cycle((
@@ -93,13 +88,8 @@ def image(width=64, height=64):
             return ' and '.join(self)
 
     colors = Colors((next_color(), next_color()))
-    img = Image.new('RGB', (width, height), colors[0])
-    dc = ImageDraw.Draw(img)
 
-    dc.rectangle((width // 2, 0, width, height // 2), fill=colors[1])
-    dc.rectangle((0, height // 2, width // 2, height), fill=colors[1])
-
-    return img, colors
+    return None, colors
 
 def next_color():
     """Returns the next colour to use.

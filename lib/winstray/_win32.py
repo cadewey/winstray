@@ -19,11 +19,9 @@ import ctypes
 import threading
 
 from ctypes import wintypes
-from six.moves import queue
 
-from ._util import serialized_image, win32
+from ._util import  win32
 from . import _base
-
 
 class Icon(_base.Icon):
     _HWND_TO_ICON = {}
@@ -42,8 +40,6 @@ class Icon(_base.Icon):
             win32.WM_STOP: self._on_stop,
             win32.WM_NOTIFY: self._on_notify,
             win32.WM_TASKBARCREATED: self._on_taskbarcreated}
-
-        self._queue = queue.Queue()
 
         # Create the message loop
         msg = wintypes.MSG()
@@ -342,14 +338,7 @@ class Icon(_base.Icon):
         if self._icon_handle:
             return
 
-        with serialized_image(self.icon, 'ICO') as icon_path:
-            self._icon_handle = win32.LoadImage(
-                None,
-                icon_path,
-                win32.IMAGE_ICON,
-                0,
-                0,
-                win32.LR_DEFAULTSIZE | win32.LR_LOADFROMFILE)
+        self._icon_handle = self.icon
 
     def _register_class(self):
         """Registers the systray window class.

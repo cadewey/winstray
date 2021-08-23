@@ -20,9 +20,7 @@ import inspect
 import itertools
 import logging
 import threading
-
-from six.moves import queue
-
+from time import sleep
 
 class Icon(object):
     """A representation of a system tray icon.
@@ -77,7 +75,6 @@ class Icon(object):
         self._log = logging.getLogger(__name__)
 
         self._running = False
-        self.__queue = queue.Queue()
 
     def __del__(self):
         if self.visible:
@@ -181,7 +178,6 @@ class Icon(object):
             explicitly set this attribute.
         """
         def setup_handler():
-            self.__queue.get()
             if setup:
                 setup(self)
             else:
@@ -197,6 +193,7 @@ class Icon(object):
         self._stop()
         if self._setup_thread.ident != threading.current_thread().ident:
             self._setup_thread.join()
+            
         self._running = False
 
     def update_menu(self):
@@ -248,7 +245,6 @@ class Icon(object):
         """
         self._running = True
         self.update_menu()
-        self.__queue.put(True)
 
     def _handler(self, callback):
         """Generates a callback handler.

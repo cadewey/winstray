@@ -17,10 +17,10 @@
 
 import unittest
 
-import pystray
+import winstray
 
-from pystray import Menu as menu
-from pystray import MenuItem as item
+from winstray import Menu as menu
+from winstray import MenuItem as item
 
 from . import separator, true
 

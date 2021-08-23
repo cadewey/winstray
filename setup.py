@@ -7,32 +7,25 @@ import sys
 
 
 #: The name of the package on PyPi
-PYPI_PACKAGE_NAME = 'pystray'
+PYPI_PACKAGE_NAME = 'winstray'
 
 #: The name of the main Python package
-MAIN_PACKAGE_NAME = 'pystray'
+MAIN_PACKAGE_NAME = 'winstray'
 
 #: The package URL
-PACKAGE_URL = 'https://github.com/moses-palmer/pystray'
+PACKAGE_URL = 'https://github.com/cadewey/pystra-win32'
 
 #: The author email
-AUTHOR_EMAIL = 'moses.palmer@gmail.com'
+AUTHOR_EMAIL = 'eldarerathis@gmail.com'
 
 #: The runtime requirements
-RUNTIME_PACKAGES = [
-    'Pillow',
-    'six']
+RUNTIME_PACKAGES = ['Pillow']
 
 #: Additional requirements used during setup
-SETUP_PACKAGES = RUNTIME_PACKAGES + [
-    'sphinx >=1.3.1']
+SETUP_PACKAGES = RUNTIME_PACKAGES + ['sphinx >=1.3.1']
 
 #: Packages requires for different environments
-EXTRA_PACKAGES = {
-    ':sys_platform == "darwin"': [
-        'pyobjc-framework-Quartz >=7.0'],
-    ':sys_platform == "linux"': [
-        'python-xlib >=0.17']}
+EXTRA_PACKAGES = {}
 
 
 # Read globals from ._info without loading it
@@ -109,9 +102,6 @@ setuptools.setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU Lesser General Public License v3 '
         '(LGPLv3)',
-        'Operating System :: MacOS :: MacOS X',
         'Operating System :: Microsoft :: Windows :: Windows NT/2000',
-        'Operating System :: POSIX',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4'])

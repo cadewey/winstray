@@ -15,24 +15,12 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import sys
-
-
 def backend():
     """Returns the backend module.
     """
     import importlib
 
-    backend_name = os.environ.get('PYSTRAY_BACKEND', None)
-    if backend_name:
-        modules = [backend_name]
-    elif sys.platform == 'darwin':
-        modules = ['darwin']
-    elif sys.platform == 'win32':
-        modules = ['win32']
-    else:
-        modules = ['appindicator', 'gtk', 'xorg']
+    modules = ['win32']
 
     errors = []
     for module in modules:
