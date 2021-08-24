@@ -23,6 +23,15 @@ from ctypes import wintypes
 from ._util import  win32
 from . import _base
 
+def loadIcon(path):
+    return win32.LoadImage(
+        None,
+        path,
+        win32.IMAGE_ICON,
+        0,
+        0,
+        win32.LR_DEFAULTSIZE | win32.LR_LOADFROMFILE)
+
 class Icon(_base.Icon):
     _HWND_TO_ICON = {}
 

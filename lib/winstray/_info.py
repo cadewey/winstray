@@ -17,4 +17,4 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = u'Carter Dewey'
-__version__ = (0, 18, 0)
+__version__ = (0, 18, 1)
