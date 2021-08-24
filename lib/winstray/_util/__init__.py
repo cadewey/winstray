@@ -1,7 +1,6 @@
 # coding=utf-8
 # pystray
 # Copyright (C) 2016-2020 Moses Palmér
-# Copyright (C) 2021 Carter Dewey
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU Lesser General Public License as published by the Free
@@ -15,6 +14,3 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-__author__ = u'Carter Dewey'
-__version__ = (0, 18, 2)
