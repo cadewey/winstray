@@ -15,25 +15,5 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-def backend():
-    """Returns the backend module.
-    """
-    import importlib
-
-    modules = ['win32']
-
-    errors = []
-    for module in modules:
-        try:
-            return importlib.import_module(__package__ + '._' + module)
-        except ImportError as e:
-            errors.append(e)
-
-    raise ImportError('this platform is not supported: {}'.format(
-        '; '.join(str(e) for e in errors)))
-
-
-Icon = backend().Icon
-del backend
-
 from ._base import Menu, MenuItem
+from ._win32 import Icon

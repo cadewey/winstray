@@ -13,7 +13,7 @@ PYPI_PACKAGE_NAME = 'winstray'
 MAIN_PACKAGE_NAME = 'winstray'
 
 #: The package URL
-PACKAGE_URL = 'https://github.com/cadewey/pystra-win32'
+PACKAGE_URL = 'https://github.com/cadewey/winstray'
 
 #: The author email
 AUTHOR_EMAIL = 'eldarerathis@gmail.com'

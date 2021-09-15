@@ -20,7 +20,6 @@ import inspect
 import itertools
 import logging
 import threading
-from time import sleep
 
 class Icon(object):
     """A representation of a system tray icon.
